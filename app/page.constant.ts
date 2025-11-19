@@ -4,14 +4,6 @@ import WorkIcon from "@mui/icons-material/Work";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import MailIcon from "@mui/icons-material/Mail";
 
-// export const TABS = [
-//   { id: 0, name: "About", icon: "👤" },
-//   { id: 1, name: "Skills", icon: "🛠️" },
-//   { id: 2, name: "Projects", icon: "💼" },
-//   { id: 3, name: "Experience", icon: "📊" },
-//   { id: 4, name: "Contact", icon: "✉️" },
-// ];
-
 export const TABS = [
   { id: 0, name: "About", icon: "about" },
   { id: 1, name: "Skills", icon: "skills" },
@@ -110,7 +102,7 @@ export const EXPERIENCE = [
   {
     role: "AI/ML Intern",
     company: "NextGen AI Frameworks Pvt. Ltd",
-    period: "May 2022 – July 2022",
+    period: "May 2024 – July 2024",
     description:
       "Worked with pretrained AI/ML models such as Hugging Face and assisted in training small machine learning models. Helped with data preparation, testing, and basic model improvements.",
   },
