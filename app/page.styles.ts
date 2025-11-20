@@ -780,7 +780,28 @@ export const portfolioStyle = `
   /* Content Area */
   .content-area {
     flex: 1;
-    min-height: calc(100vh - 200px);
+    height: 90vh;
+    overflow-y: auto;
+    padding-right: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(102, 126, 234, 0.5) transparent;
+  }
+
+  .content-area::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .content-area::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .content-area::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.5);
+    border-radius: 4px;
+  }
+
+  .content-area::-webkit-scrollbar-thumb:hover {
+    background: rgba(102, 126, 234, 0.8);
   }
 
   .tab-content {
@@ -1359,7 +1380,7 @@ export const portfolioStyle = `
   @media (max-width: 1200px) {
     .main-container {
       max-width: 100%;
-      padding: 20px 15px;
+      padding: 30px 15px;
     }
 
     .profile-sidebar {
@@ -1383,6 +1404,9 @@ export const portfolioStyle = `
     }
 
     .content-area {
+      height: auto;
+      overflow-y: visible;
+      padding-right: 0;
       order: 1;
     }
   }
@@ -1408,7 +1432,7 @@ export const portfolioStyle = `
 
     .main-container {
       margin: 120px auto 0;
-      padding: 15px;
+      padding: 30px 15px;
       gap: 30px;
     }
 
