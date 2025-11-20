@@ -11,6 +11,7 @@ import {
 } from "./page.constant";
 import { usePortfolio } from "./page.hook";
 import { UI_TEXT } from "./page.constant";
+import { handleDownload } from "@/lib/utils";
 import SchoolIcon from "@mui/icons-material/School";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WorkIcon from "@mui/icons-material/Work";
@@ -65,8 +66,8 @@ export default function Home() {
           <div className="profile-card">
             <div className="profile-image-container">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-                alt="Profile"
+                src="/sagarImage.jpg"
+                alt="Sagar - Software Engineer"
                 className="profile-avatar"
               />
               <div className="avatar-glow"></div>
@@ -102,7 +103,7 @@ export default function Home() {
                 </a>
               </div>
 
-              <button className="download-btn" onClick={handleDownloadResume}>
+              <button className="download-btn" onClick={handleDownload}>
                 <span>📄</span> Download Resume
               </button>
             </div>
