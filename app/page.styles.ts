@@ -862,6 +862,7 @@ export const portfolioStyle = `
     border: 2px solid rgba(255,255,255,0.3);
     position: relative;
     overflow: hidden;
+    margin-left: 10px;
   }
 
   .card::before {
@@ -904,6 +905,7 @@ export const portfolioStyle = `
     flex-direction: column;
     border: 2px solid rgba(255,255,255,0.3);
     position: relative;
+    margin-left: 10px;
   }
 
   .project-card::before {
