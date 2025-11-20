@@ -7,6 +7,8 @@ import {
   SKILLS,
   TECHNOLOGIES,
   EXPERIENCE,
+  ACHIEVEMENTS,
+  BLOG_POSTS,
   ICON_MAP,
 } from "./page.constant";
 import { usePortfolio } from "./page.hook";
@@ -25,21 +27,77 @@ export default function Home() {
     setActiveTab,
     formData,
     showAlert,
+    selectedBlogPost,
     handleDownloadResume,
     handleInputChange,
     handleSubmit,
+    handleBlogPostClick,
+    handleBackToBlog,
   } = usePortfolio();
 
   return (
     <div className="portfolio">
       <style>{portfolioStyle}</style>
 
-      {/* Animated Background Elements */}
+      {/* Enhanced Animated Background Elements */}
       <div className="bg-particles">
         <div className="particle"></div>
         <div className="particle"></div>
         <div className="particle"></div>
         <div className="particle"></div>
+      </div>
+
+      {/* Enhanced Starfield */}
+      <div className="starfield">
+        {[...Array(120)].map((_, i) => {
+          const size = Math.random() < 0.4 ? 'small' : Math.random() < 0.7 ? 'medium' : Math.random() < 0.9 ? 'large' : 'giant';
+          return (
+            <div
+              key={i}
+              className={`star ${size}`}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${2 + Math.random() * 3}s`
+              }}
+            ></div>
+          );
+        })}
+      </div>
+
+      {/* Shooting Stars */}
+      {[...Array(5)].map((_, i) => (
+        <div
+          key={i}
+          className="shooting-star"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 50}%`,
+            width: `${50 + Math.random() * 100}px`,
+            animationDelay: `${i * 6 + Math.random() * 5}s`,
+            animationDuration: `${2 + Math.random() * 2}s`
+          }}
+        ></div>
+      ))}
+
+      {/* Aurora Borealis Effect */}
+      <div className="aurora">
+        <div className="aurora-layer"></div>
+        <div className="aurora-layer"></div>
+        <div className="aurora-layer"></div>
+      </div>
+
+      {/* Floating Geometric Shapes */}
+      <div className="geometric-shapes">
+        <div className="geo-shape triangle-shape" style={{ left: '10%', top: '15%', animationDelay: '0s' }}></div>
+        <div className="geo-shape square-shape" style={{ right: '15%', top: '25%', animationDelay: '4s' }}></div>
+        <div className="geo-shape circle-shape" style={{ left: '75%', top: '60%', animationDelay: '8s' }}></div>
+        <div className="geo-shape hexagon-shape" style={{ right: '25%', bottom: '35%', animationDelay: '12s' }}></div>
+        <div className="geo-shape triangle-shape" style={{ left: '40%', top: '80%', animationDelay: '16s' }}></div>
+        <div className="geo-shape square-shape" style={{ right: '60%', top: '70%', animationDelay: '20s' }}></div>
+        <div className="geo-shape circle-shape" style={{ left: '20%', bottom: '15%', animationDelay: '24s' }}></div>
+        <div className="geo-shape hexagon-shape" style={{ right: '45%', top: '10%', animationDelay: '28s' }}></div>
       </div>
 
       {/* Top Navigation Tabs */}
@@ -325,8 +383,110 @@ export default function Home() {
               </div>
             )}
 
-            {/* Contact */}
+            {/* Achievements */}
             {activeTab === 4 && (
+              <div>
+                <h2 className="section-title">Achievements & Awards</h2>
+                <div className="achievements-grid">
+                  {ACHIEVEMENTS.map((achievement, index) => (
+                    <div key={index} className="achievement-card">
+                      <div className="achievement-header">
+                        <div className="achievement-icon">{achievement.icon}</div>
+                        <div>
+                          <h3 className="achievement-title">{achievement.title}</h3>
+                          <p className="achievement-date">{achievement.date}</p>
+                        </div>
+                      </div>
+                      <p className="achievement-description">{achievement.description}</p>
+                      <span className="achievement-type">{achievement.type}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Blog */}
+            {activeTab === 5 && (
+              <div>
+                {selectedBlogPost ? (
+                  <div>
+                    <div className="blog-detail">
+                    <button
+                      onClick={handleBackToBlog}
+                      className="back-button"
+                    >
+                      ← Back to Blog
+                    </button>
+                    <div className="blog-detail-header">
+                      <span className="blog-category">{selectedBlogPost.category}</span>
+                      <h1 className="blog-detail-title">{selectedBlogPost.title}</h1>
+                      <div className="blog-detail-meta">
+                        <span>{selectedBlogPost.date}</span>
+                        <span>{selectedBlogPost.readTime}</span>
+                      </div>
+                    </div>
+                    <div
+                      className="blog-detail-content"
+                      dangerouslySetInnerHTML={{ __html: selectedBlogPost.content }}
+                    />
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    <h2 className="section-title">Technical Blog</h2>
+                    <div className="blog-container">
+                      {/* Featured Post */}
+                      {BLOG_POSTS.filter(post => post.featured).slice(0, 1).map((post, index) => (
+                        <div key={index} className="featured-post" onClick={() => handleBlogPostClick(post)}>
+                          <div className="featured-post-content">
+                            <img
+                              src={post.image}
+                              alt={post.title}
+                              className="featured-post-image"
+                            />
+                            <div className="featured-post-text">
+                              <span className="featured-badge">Featured Article</span>
+                              <h3 className="blog-title">{post.title}</h3>
+                              <p className="blog-excerpt">{post.excerpt}</p>
+                              <div className="blog-meta">
+                                <span>{post.date}</span>
+                                <span>{post.readTime}</span>
+                                <span className="read-more">Read Full Article →</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+
+                      {/* Other Blog Posts */}
+                      <div className="blog-posts-grid">
+                        {BLOG_POSTS.map((post, index) => (
+                          <div key={index} className="blog-card" onClick={() => handleBlogPostClick(post)}>
+                            <img
+                              src={post.image}
+                              alt={post.title}
+                              className="blog-image"
+                            />
+                            <div className="blog-content">
+                              <span className="blog-category">{post.category}</span>
+                              <h3 className="blog-title">{post.title}</h3>
+                              <p className="blog-excerpt">{post.excerpt}</p>
+                              <div className="blog-meta">
+                                <span>{post.date} • {post.readTime}</span>
+                                <span className="read-more">Read More →</span>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Contact */}
+            {activeTab === 6 && (
               <div>
                 <h2 className="section-title" style={{ textAlign: "center" }}>
                   Get In Touch

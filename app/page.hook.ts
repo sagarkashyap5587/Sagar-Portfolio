@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export const usePortfolio = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [selectedBlogPost, setSelectedBlogPost] = useState<any>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,13 +27,25 @@ export const usePortfolio = () => {
     setFormData({ name: "", email: "", message: "" });
     setTimeout(() => setShowAlert(false), 3000);
   };
+
+  const handleBlogPostClick = (post: any) => {
+    setSelectedBlogPost(post);
+  };
+
+  const handleBackToBlog = () => {
+    setSelectedBlogPost(null);
+  };
+
   return {
     activeTab,
     setActiveTab,
     formData,
     showAlert,
+    selectedBlogPost,
     handleDownloadResume,
     handleInputChange,
     handleSubmit,
+    handleBlogPostClick,
+    handleBackToBlog,
   };
 };
