@@ -11,14 +11,36 @@ export const contactFormStyle = `
 }
 
 .contact-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-size: 4rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 4px 25px rgba(0,0,0,0.2);
+}
+
+.contact-title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100px;
+  height: 6px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  border-radius: 3px;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% { box-shadow: 0 0 15px rgba(102,126,234,0.6); }
+  100% { box-shadow: 0 0 35px rgba(240,147,251,0.9); }
 }
 
 .contact-subtitle {

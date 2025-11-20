@@ -33,6 +33,20 @@ export default function Home() {
         <div className="particle"></div>
         <div className="particle"></div>
         <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+
+        {/* Planets */}
+        <div className="planet earth"></div>
+        <div className="planet neptune"></div>
+        <div className="planet mercury"></div>
+        <div className="planet mars"></div>
+        <div className="planet jupiter"></div>
+        <div className="planet saturn"></div>
+        <div className="planet venus"></div>
+        <div className="planet uranus"></div>
       </div>
 
       <div className="nav-container">
@@ -250,7 +264,6 @@ export default function Home() {
               </div>
             )}
 
-            {/* Projects */}
             {activeTab === 2 && (
               <div>
                 <h2 className="section-title">Featured Projects</h2>
@@ -287,7 +300,6 @@ export default function Home() {
               </div>
             )}
 
-            {/* Experience */}
             {activeTab === 3 && (
               <div>
                 <h2 className="section-title">Work Experience</h2>
