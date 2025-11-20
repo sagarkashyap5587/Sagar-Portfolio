@@ -1,3 +1,5 @@
+// <================== Import Dependencies ==================>
+
 "use client";
 import React from "react";
 import { portfolioStyle } from "./page.styles";
@@ -25,9 +27,11 @@ import EmailIcon from "@mui/icons-material/Email";
 import { Box, Typography } from "@mui/material";
 const ContactForm = React.lazy(() => import("../components/contact/index"));
 
+// <================== Home Components ==================>
 export default function Home() {
   const { activeTab, setActiveTab } = usePortfolio();
 
+  // <================== Return JSX ==================>
   return (
     <Box className="portfolio">
       <style>{portfolioStyle}</style>
@@ -74,13 +78,13 @@ export default function Home() {
 
             <Box className="profile-info">
               <Typography variant="h1" className="profile-name">
-                Sagar
+                {UI_TEXT.PROFILE_NAME}
               </Typography>
               <Typography variant="h2" className="profile-title">
-                Software Engineer
+                {UI_TEXT.PROFILE_TITLE}
               </Typography>
               <Typography variant="h3" className="profile-specialty">
-                Frontend Developer
+                {UI_TEXT.PROFILE_SPECIALTY}
               </Typography>
 
               <Box className="social-links">
@@ -106,20 +110,19 @@ export default function Home() {
               </Box>
 
               <button className="download-btn" onClick={handleDownload}>
-                <Typography component="span">📄</Typography> Download Resume
+                <Typography component="span">📄</Typography>{" "}
+                {UI_TEXT.DOWNLOAD_RESUME}
               </button>
             </Box>
           </Box>
         </Box>
 
-        {/* Right Side - Content */}
         <Box className="content-area">
           <Box className="tab-content">
-            {/* About */}
             {activeTab === 0 && (
               <Box>
                 <Typography variant="h2" className="section-title">
-                  About Me
+                  {UI_TEXT.SECTION_ABOUT_ME}
                 </Typography>
                 <Box className="card">
                   <Typography
@@ -150,7 +153,7 @@ export default function Home() {
                         fontWeight: "800",
                       }}
                     >
-                      <SchoolIcon /> Education
+                      <SchoolIcon /> {UI_TEXT.SECTION_EDUCATION}
                     </Typography>
 
                     <Typography
@@ -180,7 +183,7 @@ export default function Home() {
                         fontWeight: "800",
                       }}
                     >
-                      <InfoIcon /> Quick Facts
+                      <InfoIcon /> {UI_TEXT.SECTION_QUICK_FACTS}
                     </Typography>
 
                     <Typography
@@ -192,7 +195,7 @@ export default function Home() {
                         fontSize: "1.1rem",
                       }}
                     >
-                      <LocationOnIcon /> Location: Noida
+                      <LocationOnIcon /> Location: {UI_TEXT.LOCATION}
                     </Typography>
 
                     <Typography
@@ -204,7 +207,7 @@ export default function Home() {
                         fontSize: "1.1rem",
                       }}
                     >
-                      <WorkIcon /> Available: Open for better opportunities
+                      <WorkIcon /> Available: {UI_TEXT.AVAILABILITY}
                     </Typography>
 
                     <Typography
@@ -215,18 +218,17 @@ export default function Home() {
                         fontSize: "1.1rem",
                       }}
                     >
-                      <TrackChangesIcon /> Focus: Web Development
+                      <TrackChangesIcon /> Focus: {UI_TEXT.FOCUS}
                     </Typography>
                   </Box>
                 </Box>
               </Box>
             )}
 
-            {/* Skills */}
             {activeTab === 1 && (
               <Box>
                 <Typography variant="h2" className="section-title">
-                  Skills & Expertise
+                  {UI_TEXT.SECTION_SKILLS}
                 </Typography>
                 <Box className="card">
                   {SKILLS.map((skill, index) => (
@@ -258,7 +260,7 @@ export default function Home() {
                       fontWeight: "800",
                     }}
                   >
-                    Technologies I Use
+                    {UI_TEXT.SECTION_TECHNOLOGIES}
                   </Typography>
                   <Box className="tech-tags">
                     {TECHNOLOGIES.map((tech, index) => (
@@ -278,7 +280,7 @@ export default function Home() {
             {activeTab === 2 && (
               <Box>
                 <Typography variant="h2" className="section-title">
-                  Featured Projects
+                  {UI_TEXT.SECTION_PROJECTS}
                 </Typography>
                 <Box className="grid">
                   {PROJECTS.map((project, index) => (
@@ -308,10 +310,10 @@ export default function Home() {
                         </Box>
                         <Box className="project-links">
                           <a href={project.github} className="btn btn-outline">
-                            Code
+                            {UI_TEXT.PROJECT_CODE}
                           </a>
                           <a href={project.demo} className="btn btn-primary">
-                            Live Demo
+                            {UI_TEXT.PROJECT_LIVE_DEMO}
                           </a>
                         </Box>
                       </Box>
@@ -324,7 +326,7 @@ export default function Home() {
             {activeTab === 3 && (
               <Box>
                 <Typography variant="h2" className="section-title">
-                  Work Experience
+                  {UI_TEXT.SECTION_EXPERIENCE}
                 </Typography>
                 <Box className="card">
                   {EXPERIENCE.map((exp, index) => (
@@ -353,10 +355,8 @@ export default function Home() {
       </Box>
 
       <Box className="footer">
-        <Typography variant="h3">
-          Let Build Something Amazing Together
-        </Typography>
-        <Typography>© 2024 Sagar. All rights reserved.</Typography>
+        <Typography variant="h3">{UI_TEXT.FOOTER_TAGLINE}</Typography>
+        <Typography>{UI_TEXT.FOOTER_COPYRIGHT}</Typography>
       </Box>
     </Box>
   );

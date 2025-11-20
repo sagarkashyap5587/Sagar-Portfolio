@@ -1,7 +1,9 @@
+// <================== Import Dependencies ==================>
 "use client";
 
 import React from "react";
 import { useContactForm } from "./index.hook";
+import { UI_TEXT } from "../../app/page.constant";
 import { contactFormStyle } from "./index.style";
 import { SOCIAL_LINKS } from "./index.constant";
 import {
@@ -16,53 +18,64 @@ import {
 } from "@mui/icons-material";
 import { TextField, Box, Typography } from "@mui/material";
 
+// <================== Contact Form Components ==================>
 export const ContactForm: React.FC = () => {
   const {
     formik,
     isSubmitting,
     showAlert,
-    getFieldProps,
     getAlertMessage,
     getAlertType,
     FORM_TEXT,
   } = useContactForm();
 
+  // <================== Return JSX ==================>
   return (
     <>
       <style>{contactFormStyle}</style>
 
       <Box className="contact-container">
         <Box className="contact-header">
-          <Typography variant="h1" className="contact-title">{FORM_TEXT.TITLE}</Typography>
-          <Typography className="contact-subtitle">{FORM_TEXT.SUBTITLE}</Typography>
+          <Typography variant="h1" className="contact-title">
+            {FORM_TEXT.TITLE}
+          </Typography>
+          <Typography className="contact-subtitle">
+            {FORM_TEXT.SUBTITLE}
+          </Typography>
         </Box>
 
         <Box className="contact-content">
           <Box className="contact-info-section">
-            <Typography variant="h2" className="contact-info-title">Let Connect</Typography>
+            <Typography variant="h2" className="contact-info-title">
+              {UI_TEXT.CONTACT_TITLE}
+            </Typography>
             <Typography className="contact-description">
-              I am always interested in hearing about new projects and
-              opportunities. Whether you have a question or just want to say hi,
-              feel free to reach out!
+              {UI_TEXT.CONTACT_DESCRIPTION}
             </Typography>
 
             <Box className="contact-info-item">
               <EmailIcon className="contact-info-icon" />
-              <Typography component="span">N/A</Typography>
+              <Typography component="span">
+                {UI_TEXT.CONTACT_NOT_AVAILABLE}
+              </Typography>
             </Box>
 
             <Box className="contact-info-item">
               <PhoneIcon className="contact-info-icon" />
-              <Typography component="span">N/A</Typography>
+              <Typography component="span">
+                {UI_TEXT.CONTACT_NOT_AVAILABLE}
+              </Typography>
             </Box>
 
             <Box className="contact-info-item">
               <LocationOnIcon className="contact-info-icon" />
-              <Typography component="span">Noida</Typography>
+              <Typography component="span">{UI_TEXT.LOCATION}</Typography>
             </Box>
 
             <Box className="social-links-section">
-              <Typography variant="h3" className="social-links-title">Connect With Me</Typography>
+              <Typography variant="h3" className="social-links-title">
+                {UI_TEXT.CONTACT_CONNECT_TITLE}
+              </Typography>
               <Box className="social-links-grid">
                 {SOCIAL_LINKS.map((social) => {
                   const IconComponent =
@@ -107,7 +120,12 @@ export const ContactForm: React.FC = () => {
                           }}
                         />
                         {FORM_TEXT.FIELDS.NAME.LABEL}
-                        <Typography component="span" className="required-asterisk">*</Typography>
+                        <Typography
+                          component="span"
+                          className="required-asterisk"
+                        >
+                          *
+                        </Typography>
                       </Typography>
                     }
                     placeholder={FORM_TEXT.FIELDS.NAME.PLACEHOLDER}
@@ -147,7 +165,12 @@ export const ContactForm: React.FC = () => {
                           }}
                         />
                         {FORM_TEXT.FIELDS.EMAIL.LABEL}
-                        <Typography component="span" className="required-asterisk">*</Typography>
+                        <Typography
+                          component="span"
+                          className="required-asterisk"
+                        >
+                          *
+                        </Typography>
                       </Typography>
                     }
                     placeholder={FORM_TEXT.FIELDS.EMAIL.PLACEHOLDER}
@@ -189,7 +212,12 @@ export const ContactForm: React.FC = () => {
                         }}
                       />
                       {FORM_TEXT.FIELDS.SUBJECT.LABEL}
-                      <Typography component="span" className="required-asterisk">*</Typography>
+                      <Typography
+                        component="span"
+                        className="required-asterisk"
+                      >
+                        *
+                      </Typography>
                     </Typography>
                   }
                   placeholder={FORM_TEXT.FIELDS.SUBJECT.PLACEHOLDER}
@@ -233,7 +261,12 @@ export const ContactForm: React.FC = () => {
                         }}
                       />
                       {FORM_TEXT.FIELDS.MESSAGE.LABEL}
-                      <Typography component="span" className="required-asterisk">*</Typography>
+                      <Typography
+                        component="span"
+                        className="required-asterisk"
+                      >
+                        *
+                      </Typography>
                     </Typography>
                   }
                   placeholder={FORM_TEXT.FIELDS.MESSAGE.PLACEHOLDER}
@@ -272,11 +305,15 @@ export const ContactForm: React.FC = () => {
                 {isSubmitting ? (
                   <>
                     <Box className="loading-spinner" />
-                    <Typography component="span">{FORM_TEXT.SUBMIT_BUTTON.SENDING}</Typography>
+                    <Typography component="span">
+                      {FORM_TEXT.SUBMIT_BUTTON.SENDING}
+                    </Typography>
                   </>
                 ) : (
                   <>
-                    <Typography component="span">{FORM_TEXT.SUBMIT_BUTTON.TEXT}</Typography>
+                    <Typography component="span">
+                      {FORM_TEXT.SUBMIT_BUTTON.TEXT}
+                    </Typography>
                     <Typography component="span">➤</Typography>
                   </>
                 )}
@@ -289,9 +326,13 @@ export const ContactForm: React.FC = () => {
       {showAlert && (
         <Box className={`alert alert-${getAlertType()}`}>
           {getAlertType() === "success" ? (
-            <Typography component="span" className="alert-icon">✓</Typography>
+            <Typography component="span" className="alert-icon">
+              ✓
+            </Typography>
           ) : (
-            <Typography component="span" className="alert-icon">✕</Typography>
+            <Typography component="span" className="alert-icon">
+              ✕
+            </Typography>
           )}
           <Typography component="span">{getAlertMessage()}</Typography>
         </Box>

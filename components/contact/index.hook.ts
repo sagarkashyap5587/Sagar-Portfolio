@@ -1,3 +1,4 @@
+// <================== Import Dependencies ==================>
 "use client";
 
 import { useState, useCallback } from "react";
@@ -8,13 +9,16 @@ import {
   CONTACT_FORM_TEXT,
 } from "./index.constant";
 
+// <================== Use Contact Form Hook ==================>
 export const useContactForm = () => {
+  // <================== All States ==================>
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
   const [showAlert, setShowAlert] = useState(false);
 
+  // <================== Helpers Functions ==================>
   const handleFormSubmit = useCallback(
     async (values: typeof INITIAL_FORM_VALUES) => {
       setIsSubmitting(true);
@@ -88,6 +92,7 @@ export const useContactForm = () => {
     }
   }, [submitStatus]);
 
+  // <================== Return Data ==================>
   return {
     formik,
     isSubmitting,
