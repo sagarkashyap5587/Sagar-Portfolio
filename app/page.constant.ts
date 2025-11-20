@@ -1,25 +1,45 @@
+// <================== Import Dependencies ==================>
+
 import PersonIcon from "@mui/icons-material/Person";
 import BuildIcon from "@mui/icons-material/Build";
 import WorkIcon from "@mui/icons-material/Work";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import MailIcon from "@mui/icons-material/Mail";
 
+// <================== UI TEXT ==================>
 export const UI_TEXT = {
-  ABOUT_ME_TEXT: `I am a Software Engineer specializing in React.js with 2
-                    years of experience. My expertise includes modern frontend
-                    development, micro-frontend architecture, and writing
-                    high-quality test cases using Jest. I focus on building
-                    scalable, user-friendly, and performance-optimized web
-                    applications.`,
-  ABOUT_ME_SUB_TEXT: ` I love solving complex problems and turning ideas into
-                    reality through clean, efficient code. When I am not coding,
-                    you can find me contributing to open-source projects,
-                    exploring new technologies, or sharing knowledge with the
-                    developer community.`,
+  ABOUT_ME_TEXT: `I am a Software Engineer specializing in React.js with 2 years of experience. My expertise includes modern frontend development, micro-frontend architecture, and writing high-quality test cases using Jest. I focus on building scalable, user-friendly, and performance-optimized web applications.`,
+  ABOUT_ME_SUB_TEXT: `I love solving complex problems and turning ideas into reality through clean, efficient code. When I am not coding, you can find me contributing to open-source projects, exploring new technologies, or sharing knowledge with the developer community.`,
   MASTER_DEGREE_TEXT: "Master of Computer Application",
-  UNIVERSITY_DETAILS: " Kr Mangalam University, 2024",
+  UNIVERSITY_DETAILS: "KR Mangalam University, 2024",
+  PROFILE_NAME: "Sagar",
+  PROFILE_TITLE: "Software Engineer",
+  PROFILE_SPECIALTY: "Frontend Developer",
+  DOWNLOAD_RESUME: "Download Resume",
+  SECTION_ABOUT_ME: "About Me",
+  SECTION_SKILLS: "Skills & Expertise",
+  SECTION_PROJECTS: "Featured Projects",
+  SECTION_EXPERIENCE: "Work Experience",
+  SECTION_EDUCATION: "Education",
+  SECTION_QUICK_FACTS: "Quick Facts",
+  SECTION_TECHNOLOGIES: "Technologies I Use",
+  LOCATION: "Noida",
+  AVAILABILITY: "Open for better opportunities",
+  FOCUS: "Web Development",
+  PROJECT_CODE: "Code",
+  PROJECT_LIVE_DEMO: "Live Demo",
+  FOOTER_TAGLINE: "Let's Build Something Amazing Together",
+  FOOTER_COPYRIGHT: "© 2024 Sagar. All rights reserved.",
+  CONTACT_TITLE: "Let's Connect",
+  CONTACT_DESCRIPTION: `I am always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!`,
+  CONTACT_NOT_AVAILABLE: "N/A",
+  CONTACT_CONNECT_TITLE: "Connect With Me",
+  META_TITLE: "Sagar - Software Engineer Portfolio",
+  META_DESCRIPTION:
+    "Portfolio of Sagar, a Software Engineer specializing in React.js, frontend development, and modern web technologies.",
 };
 
+// <================== TABS NAME ==================>
 export const TABS = [
   { id: 0, name: "About", icon: "about" },
   { id: 1, name: "Skills", icon: "skills" },
@@ -28,6 +48,7 @@ export const TABS = [
   { id: 4, name: "Contact", icon: "contact" },
 ];
 
+// <================== TAB ICON ==================>
 export const ICON_MAP = {
   about: PersonIcon,
   skills: BuildIcon,
@@ -36,6 +57,7 @@ export const ICON_MAP = {
   contact: MailIcon,
 };
 
+// <================== PROJECT DETAILS ==================>
 export const PROJECTS = [
   {
     title: "Henry (Real Estate Project)",
@@ -86,6 +108,7 @@ export const PROJECTS = [
   },
 ];
 
+// <================== SKILLS ==================>
 export const SKILLS = [
   { name: "React.js", level: 90 },
   { name: "Next.js", level: 80 },
@@ -95,11 +118,12 @@ export const SKILLS = [
   { name: "Node.js", level: 40 },
 ];
 
+// <================== TECHNOLOGIES ==================>
 export const TECHNOLOGIES = [
   "React.js",
   "Next.js",
   "TypeScript",
-  "Javasript",
+  "JavaScript",
   "Node.js",
   "Git",
   "Github",
@@ -107,6 +131,7 @@ export const TECHNOLOGIES = [
   "Jira",
 ];
 
+// <================== EXPERIENCE ==================>
 export const EXPERIENCE = [
   {
     role: "Software Engineer",
@@ -123,3 +148,18 @@ export const EXPERIENCE = [
       "Worked with pretrained AI/ML models such as Hugging Face and assisted in training small machine learning models. Helped with data preparation, testing, and basic model improvements.",
   },
 ];
+
+// <================== PLANETS ==================>
+export const PLANETS = [
+  "earth",
+  "neptune",
+  "mercury",
+  "mars",
+  "jupiter",
+  "saturn",
+  "venus",
+  "uranus",
+];
+
+// <================== PARTICLES ==================>
+export const PARTICLES = Array(8).fill(null);

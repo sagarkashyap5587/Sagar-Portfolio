@@ -1,5 +1,7 @@
+// <================== Import Dependencies ==================>
 import * as Yup from "yup";
 
+// <================== CONTACT FORM UI TEXT ==================>
 export const CONTACT_FORM_TEXT = {
   TITLE: "Get In Touch",
   SUBTITLE: "Let's Build Something Amazing Together",
@@ -42,6 +44,7 @@ export const CONTACT_FORM_TEXT = {
   ERROR_MESSAGE: "Oops! Something went wrong. Please try again later.",
 };
 
+// <================== VALIDATION SCHEMA ==================>
 export const CONTACT_FORM_SCHEMA = Yup.object().shape({
   name: Yup.string()
     .min(2, CONTACT_FORM_TEXT.FIELDS.NAME.ERROR_MIN_LENGTH)
@@ -60,6 +63,7 @@ export const CONTACT_FORM_SCHEMA = Yup.object().shape({
     .required(CONTACT_FORM_TEXT.FIELDS.MESSAGE.ERROR_REQUIRED),
 });
 
+// <================== INITIAL VALUES ==================>
 export const INITIAL_FORM_VALUES = {
   name: "",
   email: "",
@@ -67,6 +71,7 @@ export const INITIAL_FORM_VALUES = {
   message: "",
 };
 
+// <================== SOCIAL LINKS ==================>
 export const SOCIAL_LINKS = [
   {
     name: "GitHub",

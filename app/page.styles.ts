@@ -1,3 +1,4 @@
+// <================== Portfolio Styling ==================>
 export const portfolioStyle = `
   * {
     margin: 0;
@@ -16,17 +17,8 @@ export const portfolioStyle = `
   .portfolio {
     min-height: 100vh;
     position: relative;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 70%, #667eea 100%);
-    background-size: 600% 600%;
-    animation: gradientFlow 20s ease infinite;
-  }
-
-  @keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    25% { background-position: 100% 50%; }
-    50% { background-position: 100% 100%; }
-    75% { background-position: 50% 100%; }
-    100% { background-position: 0% 50%; }
+    background: #000000;
+    overflow: hidden;
   }
 
   .portfolio::before {
@@ -37,14 +29,14 @@ export const portfolioStyle = `
     width: 100%;
     height: 100%;
     background:
-      radial-gradient(circle at 20% 20%, rgba(120, 119, 198, 0.3), transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.3), transparent 50%),
-      radial-gradient(circle at 40% 60%, rgba(78, 205, 196, 0.2), transparent 50%);
+      radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.15), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.12), transparent 45%),
+      radial-gradient(circle at 40% 60%, rgba(118, 75, 162, 0.1), transparent 50%);
     pointer-events: none;
     z-index: 0;
   }
 
-  /* Animated Background Particles */
+  /* Animated Star Field Background */
   .bg-particles {
     position: fixed;
     top: 0;
@@ -58,64 +50,402 @@ export const portfolioStyle = `
 
   .particle {
     position: absolute;
-    background: rgba(255,255,255,0.15);
+    background: white;
     border-radius: 50%;
-    animation: particleFloat 15s infinite ease-in-out;
+    animation: twinkle 4s infinite ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
   }
 
+  /* Large bright stars */
   .particle:nth-child(1) {
-    width: 100px;
-    height: 100px;
+    width: 4px;
+    height: 4px;
     left: 10%;
     top: 20%;
     animation-delay: 0s;
-    animation-duration: 20s;
+    animation-duration: 3s;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 1);
   }
 
   .particle:nth-child(2) {
-    width: 150px;
-    height: 150px;
+    width: 3px;
+    height: 3px;
     right: 15%;
     top: 50%;
-    animation-delay: 3s;
-    animation-duration: 25s;
+    animation-delay: 1s;
+    animation-duration: 4s;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
   }
 
   .particle:nth-child(3) {
-    width: 80px;
-    height: 80px;
+    width: 5px;
+    height: 5px;
     left: 60%;
     bottom: 20%;
-    animation-delay: 5s;
-    animation-duration: 18s;
+    animation-delay: 2s;
+    animation-duration: 3.5s;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
   }
 
   .particle:nth-child(4) {
-    width: 120px;
-    height: 120px;
+    width: 3px;
+    height: 3px;
     right: 30%;
     top: 30%;
-    animation-delay: 7s;
-    animation-duration: 22s;
+    animation-delay: 1.5s;
+    animation-duration: 4.5s;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
   }
 
-  @keyframes particleFloat {
+  .particle:nth-child(5) {
+    width: 2px;
+    height: 2px;
+    left: 25%;
+    top: 60%;
+    animation-delay: 2.5s;
+    animation-duration: 5s;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  }
+
+  .particle:nth-child(6) {
+    width: 4px;
+    height: 4px;
+    right: 45%;
+    bottom: 35%;
+    animation-delay: 0.8s;
+    animation-duration: 3.8s;
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.9);
+  }
+
+  .particle:nth-child(7) {
+    width: 3px;
+    height: 3px;
+    left: 75%;
+    top: 15%;
+    animation-delay: 3.2s;
+    animation-duration: 4.2s;
+    box-shadow: 0 0 11px rgba(255, 255, 255, 0.8);
+  }
+
+  .particle:nth-child(8) {
+    width: 2px;
+    height: 2px;
+    right: 65%;
+    top: 75%;
+    animation-delay: 1.8s;
+    animation-duration: 5.5s;
+    box-shadow: 0 0 9px rgba(255, 255, 255, 0.7);
+  }
+
+  @keyframes twinkle {
     0%, 100% {
-      transform: translateY(0px) translateX(0px) rotate(0deg);
       opacity: 0.3;
+      transform: scale(1);
     }
     25% {
-      transform: translateY(-50px) translateX(30px) rotate(90deg);
-      opacity: 0.6;
+      opacity: 0.8;
+      transform: scale(1.2);
     }
     50% {
-      transform: translateY(-30px) translateX(-20px) rotate(180deg);
-      opacity: 0.4;
+      opacity: 1;
+      transform: scale(1.5);
     }
     75% {
-      transform: translateY(-70px) translateX(40px) rotate(270deg);
-      opacity: 0.7;
+      opacity: 0.6;
+      transform: scale(1.1);
     }
+  }
+
+  /* Shooting stars */
+  .bg-particles::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -100px;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), white);
+    transform: rotate(-30deg);
+    animation: shooting 8s infinite ease-in-out;
+    opacity: 0;
+  }
+
+  @keyframes shooting {
+    0% {
+      left: -100px;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      left: calc(100% + 100px);
+      opacity: 0;
+    }
+  }
+
+  /* Additional small stars for depth */
+  .bg-particles::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      radial-gradient(2px 2px at 20% 30%, white, transparent),
+      radial-gradient(2px 2px at 60% 70%, white, transparent),
+      radial-gradient(1px 1px at 50% 50%, white, transparent),
+      radial-gradient(1px 1px at 80% 10%, white, transparent),
+      radial-gradient(2px 2px at 10% 80%, white, transparent),
+      radial-gradient(1px 1px at 90% 60%, white, transparent),
+      radial-gradient(1px 1px at 30% 90%, white, transparent);
+    background-size: 400px 400px, 300px 300px, 200px 200px, 250px 250px, 350px 350px, 450px 450px, 500px 500px;
+    background-position: 0 0, 100px 50px, 200px 100px, 50px 200px, 300px 150px, 150px 300px, 250px 250px;
+    animation: starMove 100s linear infinite;
+    opacity: 0.4;
+  }
+
+  @keyframes starMove {
+    from {
+      transform: translateX(0) translateY(0);
+    }
+    to {
+      transform: translateX(-400px) translateY(-400px);
+    }
+  }
+
+  /* Solar System Planets */
+  .planet {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: planetRotate 60s infinite linear;
+    box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+  }
+
+  /* Earth - Blue-green planet */
+  .earth {
+    width: 60px;
+    height: 60px;
+    left: 15%;
+    top: 25%;
+    background: radial-gradient(circle at 30% 30%, #4facfe, #0f2027, #2c5f2d);
+    animation-duration: 45s;
+    box-shadow:
+      inset -10px -10px 20px rgba(0,0,0,0.5),
+      0 0 25px rgba(79, 172, 254, 0.3),
+      inset 5px 5px 10px rgba(255,255,255,0.2);
+  }
+
+  /* Neptune - Deep blue ice giant */
+  .neptune {
+    width: 50px;
+    height: 50px;
+    right: 20%;
+    top: 30%;
+    background: radial-gradient(circle at 40% 40%, #4b6cb7, #182848, #1e3c72);
+    animation-duration: 55s;
+    animation-direction: reverse;
+    box-shadow:
+      inset -8px -8px 15px rgba(0,0,0,0.5),
+      0 0 20px rgba(75, 108, 183, 0.3),
+      inset 3px 3px 8px rgba(255,255,255,0.15);
+  }
+
+  /* Mercury - Small gray planet */
+  .mercury {
+    width: 25px;
+    height: 25px;
+    left: 70%;
+    top: 15%;
+    background: radial-gradient(circle at 35% 35%, #b8b8b8, #696969, #4a4a4a);
+    animation-duration: 30s;
+    box-shadow:
+      inset -4px -4px 8px rgba(0,0,0,0.5),
+      0 0 15px rgba(184, 184, 184, 0.2),
+      inset 2px 2px 4px rgba(255,255,255,0.3);
+  }
+
+  /* Mars - Red planet */
+  .mars {
+    width: 35px;
+    height: 35px;
+    right: 35%;
+    bottom: 20%;
+    background: radial-gradient(circle at 30% 30%, #ff6b6b, #c92a2a, #5f0a0a);
+    animation-duration: 40s;
+    box-shadow:
+      inset -6px -6px 12px rgba(0,0,0,0.5),
+      0 0 18px rgba(255, 107, 107, 0.3),
+      inset 3px 3px 6px rgba(255,255,255,0.15);
+  }
+
+  /* Jupiter - Large striped gas giant */
+  .jupiter {
+    width: 80px;
+    height: 80px;
+    left: 45%;
+    top: 60%;
+    background:
+      radial-gradient(circle at 35% 35%, rgba(255,255,255,0.3), transparent 40%),
+      linear-gradient(0deg, #d4a574 0%, #8b7355 25%, #cd853f 50%, #daa520 75%, #d4a574 100%);
+    animation-duration: 65s;
+    box-shadow:
+      inset -12px -12px 25px rgba(0,0,0,0.5),
+      0 0 30px rgba(212, 165, 116, 0.3),
+      inset 5px 5px 15px rgba(255,255,255,0.2);
+  }
+
+  /* Saturn - Ringed planet */
+  .saturn {
+    width: 70px;
+    height: 70px;
+    right: 15%;
+    top: 65%;
+    background: radial-gradient(circle at 40% 40%, #ffd89b, #e6b87d, #8b7355);
+    animation-duration: 50s;
+    box-shadow:
+      inset -10px -10px 20px rgba(0,0,0,0.5),
+      0 0 25px rgba(255, 216, 155, 0.3),
+      inset 4px 4px 10px rgba(255,255,255,0.2);
+  }
+
+  /* Saturn's rings */
+  .saturn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(75deg);
+    width: 120px;
+    height: 120px;
+    border: 8px solid rgba(230, 184, 125, 0.4);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 216, 155, 0.3);
+  }
+
+  /* Venus - Yellow cloudy planet */
+  .venus {
+    width: 40px;
+    height: 40px;
+    left: 25%;
+    bottom: 30%;
+    background: radial-gradient(circle at 35% 35%, #ffd700, #ffcc00, #ff8c00);
+    animation-duration: 35s;
+    box-shadow:
+      inset -6px -6px 12px rgba(0,0,0,0.5),
+      0 0 20px rgba(255, 215, 0, 0.3),
+      inset 3px 3px 8px rgba(255,255,255,0.25);
+  }
+
+  /* Uranus - Tilted ice giant */
+  .uranus {
+    width: 45px;
+    height: 45px;
+    right: 45%;
+    top: 10%;
+    background: radial-gradient(circle at 40% 40%, #4fd1c5, #319795, #2c7a7b);
+    animation-duration: 48s;
+    animation-direction: reverse;
+    transform: rotate(98deg);
+    box-shadow:
+      inset -7px -7px 14px rgba(0,0,0,0.5),
+      0 0 18px rgba(79, 209, 197, 0.3),
+      inset 3px 3px 7px rgba(255,255,255,0.2);
+  }
+
+  @keyframes planetRotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Orbital movements for planets */
+  .earth {
+    animation: planetRotate 45s infinite linear, earthOrbit 120s infinite ease-in-out;
+  }
+
+  .neptune {
+    animation: planetRotate 55s infinite linear reverse, neptuneOrbit 150s infinite ease-in-out;
+  }
+
+  .mars {
+    animation: planetRotate 40s infinite linear, marsOrbit 90s infinite ease-in-out;
+  }
+
+  .jupiter {
+    animation: planetRotate 65s infinite linear, jupiterOrbit 180s infinite ease-in-out;
+  }
+
+  .saturn {
+    animation: planetRotate 50s infinite linear, saturnOrbit 160s infinite ease-in-out;
+  }
+
+  .venus {
+    animation: planetRotate 35s infinite linear, venusOrbit 80s infinite ease-in-out;
+  }
+
+  .mercury {
+    animation: planetRotate 30s infinite linear, mercuryOrbit 60s infinite ease-in-out;
+  }
+
+  .uranus {
+    animation: planetRotate 48s infinite linear reverse, uranusOrbit 140s infinite ease-in-out;
+  }
+
+  @keyframes earthOrbit {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(30px, -20px) rotate(90deg); }
+    50% { transform: translate(-15px, 30px) rotate(180deg); }
+    75% { transform: translate(25px, 15px) rotate(270deg); }
+  }
+
+  @keyframes neptuneOrbit {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(-40px, 25px) rotate(120deg); }
+    66% { transform: translate(20px, -30px) rotate(240deg); }
+  }
+
+  @keyframes marsOrbit {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-25px, 20px) rotate(180deg); }
+  }
+
+  @keyframes jupiterOrbit {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(20px, -25px) rotate(90deg); }
+    50% { transform: translate(-30px, 15px) rotate(180deg); }
+    75% { transform: translate(15px, 30px) rotate(270deg); }
+  }
+
+  @keyframes saturnOrbit {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    40% { transform: translate(-35px, -20px) rotate(144deg); }
+    80% { transform: translate(25px, 25px) rotate(288deg); }
+  }
+
+  @keyframes venusOrbit {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, -15px) rotate(180deg); }
+  }
+
+  @keyframes mercuryOrbit {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(15px, 10px) rotate(120deg); }
+    66% { transform: translate(-10px, -15px) rotate(240deg); }
+  }
+
+  @keyframes uranusOrbit {
+    0%, 100% { transform: translate(0, 0) rotate(0deg) rotateX(98deg); }
+    50% { transform: translate(-20px, 25px) rotate(180deg) rotateX(98deg); }
   }
 
   /* Navigation Tabs */
@@ -125,10 +455,10 @@ export const portfolioStyle = `
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255,255,255,0.08);
+    background: rgba(0,0,0,0.8);
     backdrop-filter: blur(25px);
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 32px rgba(102,126,234,0.3);
   }
 
   .top-tabs {
@@ -142,8 +472,8 @@ export const portfolioStyle = `
   }
 
   .top-tab {
-    background: rgba(255,255,255,0.12);
-    border: 2px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.3);
     border-radius: 50px;
     padding: 18px 30px;
     margin: 8px 12px;
@@ -157,10 +487,10 @@ export const portfolioStyle = `
     gap: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(20px);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4), 0 0 20px rgba(102,126,234,0.2);
   }
 
   .top-tab::before {
@@ -176,9 +506,9 @@ export const portfolioStyle = `
 
   .top-tab:hover {
     transform: translateY(-5px) scale(1.08);
-    background: rgba(255,255,255,0.2);
-    border-color: rgba(255,255,255,0.5);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.6);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 30px rgba(240,147,251,0.3);
   }
 
   .top-tab:hover::before {
@@ -187,11 +517,12 @@ export const portfolioStyle = `
 
   .top-tab.active {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    border-color: transparent;
+    border-color: rgba(255,255,255,0.8);
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(102,126,234,0.5);
+    box-shadow: 0 15px 35px rgba(102,126,234,0.6), 0 0 25px rgba(240,147,251,0.4);
     color: #ffffff;
     font-weight: 800;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
   }
 
   .top-tab.active::before {
@@ -234,13 +565,13 @@ export const portfolioStyle = `
   }
 
   .profile-card {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(25px);
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(30px);
     border-radius: 35px;
     padding: 50px 35px;
     text-align: center;
-    border: 2px solid rgba(255,255,255,0.2);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(102,126,234,0.2);
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
@@ -264,8 +595,9 @@ export const portfolioStyle = `
 
   .profile-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 40px 80px rgba(0,0,0,0.4);
-    background: rgba(255,255,255,0.15);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 50px rgba(240,147,251,0.3);
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.4);
   }
 
   .profile-image-container {
@@ -499,14 +831,14 @@ export const portfolioStyle = `
   }
 
   .card {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(25px);
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(30px);
     border-radius: 30px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.25), 0 0 0 2px rgba(255,255,255,0.25);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 0 2px rgba(255,255,255,0.3), 0 0 30px rgba(102,126,234,0.15);
     padding: 50px;
     margin-bottom: 50px;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid rgba(255,255,255,0.25);
+    border: 2px solid rgba(255,255,255,0.3);
     position: relative;
     overflow: hidden;
   }
@@ -524,8 +856,9 @@ export const portfolioStyle = `
 
   .card:hover {
     transform: translateY(-15px) scale(1.03);
-    box-shadow: 0 40px 80px rgba(0,0,0,0.35), 0 0 0 3px rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.18);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 3px rgba(255,255,255,0.4), 0 0 40px rgba(240,147,251,0.25);
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.4);
   }
 
   .card:hover::before {
@@ -540,15 +873,15 @@ export const portfolioStyle = `
   }
 
   .project-card {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(25px);
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(30px);
     border-radius: 25px;
     overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.25), 0 0 0 2px rgba(255,255,255,0.25);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 0 2px rgba(255,255,255,0.3), 0 0 30px rgba(102,126,234,0.15);
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
-    border: 2px solid rgba(255,255,255,0.25);
+    border: 2px solid rgba(255,255,255,0.3);
     position: relative;
   }
 
@@ -566,8 +899,9 @@ export const portfolioStyle = `
 
   .project-card:hover {
     transform: translateY(-20px) scale(1.05);
-    box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 0 3px rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.18);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 3px rgba(255,255,255,0.4), 0 0 40px rgba(240,147,251,0.25);
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.4);
   }
 
   .project-card:hover::before {
@@ -865,22 +1199,28 @@ export const portfolioStyle = `
   .form-input {
     width: 100%;
     padding: 20px 25px;
-    border: 3px solid rgba(255,255,255,0.3);
+    border: 3px solid rgba(255,255,255,0.4);
     border-radius: 15px;
     font-size: 1.1rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     font-family: inherit;
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
     color: #ffffff;
-    box-shadow: inset 0 4px 15px rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
+    box-shadow: inset 0 4px 15px rgba(0,0,0,0.5), 0 0 20px rgba(102,126,234,0.1);
+    backdrop-filter: blur(20px);
+  }
+
+  .form-input:hover {
+    border-color: #4facfe;
+    box-shadow: inset 0 4px 15px rgba(0,0,0,0.5), 0 0 25px rgba(79, 172, 254, 0.3);
+    background: rgba(255,255,255,0.1);
   }
 
   .form-input:focus {
     outline: none;
     border-color: #f093fb;
-    box-shadow: inset 0 4px 15px rgba(0,0,0,0.3), 0 0 0 5px rgba(240,147,251,0.3);
-    background: rgba(255,255,255,0.2);
+    box-shadow: inset 0 4px 15px rgba(0,0,0,0.5), 0 0 0 5px rgba(240,147,251,0.3), 0 0 30px rgba(240,147,251,0.2);
+    background: rgba(255,255,255,0.12);
   }
 
   .form-input::placeholder {
@@ -940,15 +1280,16 @@ export const portfolioStyle = `
   }
 
   .footer {
-    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(102,126,234,0.2) 50%, rgba(240,147,251,0.2) 100%);
-    backdrop-filter: blur(25px);
+    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(102,126,234,0.15) 50%, rgba(240,147,251,0.15) 100%);
+    backdrop-filter: blur(30px);
     color: white;
     text-align: center;
     padding: 80px 30px;
     margin-top: 100px;
     position: relative;
     overflow: hidden;
-    border-top: 2px solid rgba(255,255,255,0.2);
+    border-top: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 -20px 40px rgba(102,126,234,0.2);
   }
 
   .footer::before {

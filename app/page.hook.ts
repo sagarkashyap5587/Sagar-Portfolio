@@ -1,18 +1,16 @@
+// <================== Import Dependencies ==================>
 "use client";
 
 import { useState } from "react";
 
+// <================== Use Portfolio Hooks ==================>
 export const usePortfolio = () => {
+  // <================== All States==================>
   const [activeTab, setActiveTab] = useState(0);
 
-  const handleDownloadResume = () => {
-    // Handle download resume functionality
-    window.open('/resume.pdf', '_blank');
-  };
-
+  // <================== Retun Data ==================>
   return {
     activeTab,
     setActiveTab,
-    handleDownloadResume,
   };
 };
