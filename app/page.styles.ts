@@ -16,7 +16,7 @@ export const portfolioStyle = `
   .portfolio {
     min-height: 100vh;
     position: relative;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 15%, #f093fb 30%, #4facfe 50%, #00f2fe 70%, #667eea 100%);
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 70%, #667eea 100%);
     background-size: 600% 600%;
     animation: gradientFlow 20s ease infinite;
   }
