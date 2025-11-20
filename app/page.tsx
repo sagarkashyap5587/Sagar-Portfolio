@@ -10,6 +10,7 @@ import {
   ICON_MAP,
 } from "./page.constant";
 import { usePortfolio } from "./page.hook";
+import { UI_TEXT } from "./page.constant";
 import SchoolIcon from "@mui/icons-material/School";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WorkIcon from "@mui/icons-material/Work";
@@ -33,8 +34,6 @@ export default function Home() {
   return (
     <div className="portfolio">
       <style>{portfolioStyle}</style>
-
-      {/* Animated Background Elements */}
       <div className="bg-particles">
         <div className="particle"></div>
         <div className="particle"></div>
@@ -42,7 +41,6 @@ export default function Home() {
         <div className="particle"></div>
       </div>
 
-      {/* Top Navigation Tabs */}
       <div className="nav-container">
         <div className="top-tabs">
           {TABS.map((tab) => {
@@ -62,10 +60,7 @@ export default function Home() {
           })}
         </div>
       </div>
-
-      {/* Main Content Area */}
       <div className="main-container">
-        {/* Left Side - Profile */}
         <div className="profile-sidebar">
           <div className="profile-card">
             <div className="profile-image-container">
@@ -129,19 +124,10 @@ export default function Home() {
                       marginBottom: "25px",
                     }}
                   >
-                    I am a Software Engineer specializing in React.js with 2 years
-                    of experience. My expertise includes modern frontend
-                    development, micro-frontend architecture, and writing
-                    high-quality test cases using Jest. I focus on building
-                    scalable, user-friendly, and performance-optimized web
-                    applications.
+                    {UI_TEXT.ABOUT_ME_TEXT}
                   </p>
                   <p style={{ fontSize: "1.2rem", lineHeight: "1.8" }}>
-                    I love solving complex problems and turning ideas into reality
-                    through clean, efficient code. When I am not coding, you can
-                    find me contributing to open-source projects, exploring new
-                    technologies, or sharing knowledge with the developer
-                    community.
+                    {UI_TEXT.ABOUT_ME_SUB_TEXT}
                   </p>
                 </div>
 
@@ -169,9 +155,11 @@ export default function Home() {
                         marginBottom: "8px",
                       }}
                     >
-                      Master of Computer Application
+                      {UI_TEXT.MASTER_DEGREE_TEXT}
                     </p>
-                    <p style={{ color: "rgba(255,255,255,0.8)" }}>Kr Mangalam University, 2024</p>
+                    <p style={{ color: "rgba(255,255,255,0.8)" }}>
+                      {UI_TEXT.UNIVERSITY_DETAILS}
+                    </p>
                   </div>
 
                   {/* Quick Facts */}

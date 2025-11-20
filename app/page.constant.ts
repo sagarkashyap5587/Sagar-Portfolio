@@ -4,6 +4,22 @@ import WorkIcon from "@mui/icons-material/Work";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import MailIcon from "@mui/icons-material/Mail";
 
+export const UI_TEXT = {
+  ABOUT_ME_TEXT: `I am a Software Engineer specializing in React.js with 2
+                    years of experience. My expertise includes modern frontend
+                    development, micro-frontend architecture, and writing
+                    high-quality test cases using Jest. I focus on building
+                    scalable, user-friendly, and performance-optimized web
+                    applications.`,
+  ABOUT_ME_SUB_TEXT: ` I love solving complex problems and turning ideas into
+                    reality through clean, efficient code. When I am not coding,
+                    you can find me contributing to open-source projects,
+                    exploring new technologies, or sharing knowledge with the
+                    developer community.`,
+  MASTER_DEGREE_TEXT: "Master of Computer Application",
+  UNIVERSITY_DETAILS: " Kr Mangalam University, 2024",
+};
+
 export const TABS = [
   { id: 0, name: "About", icon: "about" },
   { id: 1, name: "Skills", icon: "skills" },
