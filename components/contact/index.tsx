@@ -14,7 +14,7 @@ import {
   LocationOn as LocationOnIcon,
   Tag as TagIcon,
 } from "@mui/icons-material";
-import { TextField } from "@mui/material";
+import { TextField, Box, Typography } from "@mui/material";
 
 export const ContactForm: React.FC = () => {
   const {
@@ -31,39 +31,39 @@ export const ContactForm: React.FC = () => {
     <>
       <style>{contactFormStyle}</style>
 
-      <div className="contact-container">
-        <div className="contact-header">
-          <h1 className="contact-title">{FORM_TEXT.TITLE}</h1>
-          <p className="contact-subtitle">{FORM_TEXT.SUBTITLE}</p>
-        </div>
+      <Box className="contact-container">
+        <Box className="contact-header">
+          <Typography variant="h1" className="contact-title">{FORM_TEXT.TITLE}</Typography>
+          <Typography className="contact-subtitle">{FORM_TEXT.SUBTITLE}</Typography>
+        </Box>
 
-        <div className="contact-content">
-          <div className="contact-info-section">
-            <h2 className="contact-info-title">Let Connect</h2>
-            <p className="contact-description">
+        <Box className="contact-content">
+          <Box className="contact-info-section">
+            <Typography variant="h2" className="contact-info-title">Let Connect</Typography>
+            <Typography className="contact-description">
               I am always interested in hearing about new projects and
               opportunities. Whether you have a question or just want to say hi,
               feel free to reach out!
-            </p>
+            </Typography>
 
-            <div className="contact-info-item">
+            <Box className="contact-info-item">
               <EmailIcon className="contact-info-icon" />
-              <span>N/A</span>
-            </div>
+              <Typography component="span">N/A</Typography>
+            </Box>
 
-            <div className="contact-info-item">
+            <Box className="contact-info-item">
               <PhoneIcon className="contact-info-icon" />
-              <span>N/A</span>
-            </div>
+              <Typography component="span">N/A</Typography>
+            </Box>
 
-            <div className="contact-info-item">
+            <Box className="contact-info-item">
               <LocationOnIcon className="contact-info-icon" />
-              <span>Noida</span>
-            </div>
+              <Typography component="span">Noida</Typography>
+            </Box>
 
-            <div className="social-links-section">
-              <h3 className="social-links-title">Connect With Me</h3>
-              <div className="social-links-grid">
+            <Box className="social-links-section">
+              <Typography variant="h3" className="social-links-title">Connect With Me</Typography>
+              <Box className="social-links-grid">
                 {SOCIAL_LINKS.map((social) => {
                   const IconComponent =
                     social.icon === "github"
@@ -84,31 +84,31 @@ export const ContactForm: React.FC = () => {
                     </a>
                   );
                 })}
-              </div>
-            </div>
-          </div>
+              </Box>
+            </Box>
+          </Box>
 
           {/* Contact Form Section */}
-          <div className="contact-form-section">
+          <Box className="contact-form-section">
             <form onSubmit={formik.handleSubmit} className="contact-form">
-              <div className="form-row">
-                <div className="form-group">
+              <Box className="form-row">
+                <Box className="form-group">
                   <TextField
                     fullWidth
                     id="name"
                     name="name"
                     label={
-                      <span className="form-label">
+                      <Typography component="span" className="form-label">
                         <PersonIcon
-                          style={{
+                          sx={{
                             fontSize: 20,
                             verticalAlign: "middle",
-                            marginRight: 8,
+                            marginRight: 1,
                           }}
                         />
                         {FORM_TEXT.FIELDS.NAME.LABEL}
-                        <span className="required-asterisk">*</span>
-                      </span>
+                        <Typography component="span" className="required-asterisk">*</Typography>
+                      </Typography>
                     }
                     placeholder={FORM_TEXT.FIELDS.NAME.PLACEHOLDER}
                     value={formik.values.name}
@@ -120,35 +120,35 @@ export const ContactForm: React.FC = () => {
                     margin="normal"
                     InputProps={{
                       className: "mui-textfield-input",
-                      style: {
+                      sx: {
                         background: "rgba(255, 255, 255, 0.1)",
                         borderRadius: "12px",
                         color: "#fff",
                       },
                     }}
                     InputLabelProps={{
-                      style: { color: "#fff" },
+                      sx: { color: "#fff" },
                     }}
                   />
-                </div>
+                </Box>
 
-                <div className="form-group">
+                <Box className="form-group">
                   <TextField
                     fullWidth
                     id="email"
                     name="email"
                     label={
-                      <span className="form-label">
+                      <Typography component="span" className="form-label">
                         <EmailIcon
-                          style={{
+                          sx={{
                             fontSize: 20,
                             verticalAlign: "middle",
-                            marginRight: 8,
+                            marginRight: 1,
                           }}
                         />
                         {FORM_TEXT.FIELDS.EMAIL.LABEL}
-                        <span className="required-asterisk">*</span>
-                      </span>
+                        <Typography component="span" className="required-asterisk">*</Typography>
+                      </Typography>
                     }
                     placeholder={FORM_TEXT.FIELDS.EMAIL.PLACEHOLDER}
                     value={formik.values.email}
@@ -161,36 +161,36 @@ export const ContactForm: React.FC = () => {
                     margin="normal"
                     InputProps={{
                       className: "mui-textfield-input",
-                      style: {
+                      sx: {
                         background: "rgba(255, 255, 255, 0.1)",
                         borderRadius: "12px",
                         color: "#fff",
                       },
                     }}
                     InputLabelProps={{
-                      style: { color: "#fff" },
+                      sx: { color: "#fff" },
                     }}
                   />
-                </div>
-              </div>
+                </Box>
+              </Box>
 
-              <div className="form-group">
+              <Box className="form-group">
                 <TextField
                   fullWidth
                   id="subject"
                   name="subject"
                   label={
-                    <span className="form-label">
+                    <Typography component="span" className="form-label">
                       <TagIcon
-                        style={{
+                        sx={{
                           fontSize: 20,
                           verticalAlign: "middle",
-                          marginRight: 8,
+                          marginRight: 1,
                         }}
                       />
                       {FORM_TEXT.FIELDS.SUBJECT.LABEL}
-                      <span className="required-asterisk">*</span>
-                    </span>
+                      <Typography component="span" className="required-asterisk">*</Typography>
+                    </Typography>
                   }
                   placeholder={FORM_TEXT.FIELDS.SUBJECT.PLACEHOLDER}
                   value={formik.values.subject}
@@ -206,35 +206,35 @@ export const ContactForm: React.FC = () => {
                   margin="normal"
                   InputProps={{
                     className: "mui-textfield-input",
-                    style: {
+                    sx: {
                       background: "rgba(255, 255, 255, 0.1)",
                       borderRadius: "12px",
                       color: "#fff",
                     },
                   }}
                   InputLabelProps={{
-                    style: { color: "#fff" },
+                    sx: { color: "#fff" },
                   }}
                 />
-              </div>
+              </Box>
 
-              <div className="form-group">
+              <Box className="form-group">
                 <TextField
                   fullWidth
                   id="message"
                   name="message"
                   label={
-                    <span className="form-label">
+                    <Typography component="span" className="form-label">
                       <MessageIcon
-                        style={{
+                        sx={{
                           fontSize: 20,
                           verticalAlign: "middle",
-                          marginRight: 8,
+                          marginRight: 1,
                         }}
                       />
                       {FORM_TEXT.FIELDS.MESSAGE.LABEL}
-                      <span className="required-asterisk">*</span>
-                    </span>
+                      <Typography component="span" className="required-asterisk">*</Typography>
+                    </Typography>
                   }
                   placeholder={FORM_TEXT.FIELDS.MESSAGE.PLACEHOLDER}
                   value={formik.values.message}
@@ -252,17 +252,17 @@ export const ContactForm: React.FC = () => {
                   margin="normal"
                   InputProps={{
                     className: "mui-textfield-input",
-                    style: {
+                    sx: {
                       background: "rgba(255, 255, 255, 0.1)",
                       borderRadius: "12px",
                       color: "#fff",
                     },
                   }}
                   InputLabelProps={{
-                    style: { color: "#fff" },
+                    sx: { color: "#fff" },
                   }}
                 />
-              </div>
+              </Box>
 
               <button
                 type="submit"
@@ -271,30 +271,30 @@ export const ContactForm: React.FC = () => {
               >
                 {isSubmitting ? (
                   <>
-                    <div className="loading-spinner" />
-                    <span>{FORM_TEXT.SUBMIT_BUTTON.SENDING}</span>
+                    <Box className="loading-spinner" />
+                    <Typography component="span">{FORM_TEXT.SUBMIT_BUTTON.SENDING}</Typography>
                   </>
                 ) : (
                   <>
-                    <span>{FORM_TEXT.SUBMIT_BUTTON.TEXT}</span>
-                    <span>➤</span>
+                    <Typography component="span">{FORM_TEXT.SUBMIT_BUTTON.TEXT}</Typography>
+                    <Typography component="span">➤</Typography>
                   </>
                 )}
               </button>
             </form>
-          </div>
-        </div>
-      </div>
+          </Box>
+        </Box>
+      </Box>
 
       {showAlert && (
-        <div className={`alert alert-${getAlertType()}`}>
+        <Box className={`alert alert-${getAlertType()}`}>
           {getAlertType() === "success" ? (
-            <span className="alert-icon">✓</span>
+            <Typography component="span" className="alert-icon">✓</Typography>
           ) : (
-            <span className="alert-icon">✕</span>
+            <Typography component="span" className="alert-icon">✕</Typography>
           )}
-          <span>{getAlertMessage()}</span>
-        </div>
+          <Typography component="span">{getAlertMessage()}</Typography>
+        </Box>
       )}
     </>
   );

@@ -8,6 +8,8 @@ import {
   TECHNOLOGIES,
   EXPERIENCE,
   ICON_MAP,
+  PARTICLES,
+  PLANETS,
 } from "./page.constant";
 import { usePortfolio } from "./page.hook";
 import { UI_TEXT } from "./page.constant";
@@ -20,37 +22,27 @@ import InfoIcon from "@mui/icons-material/Info";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
+import { Box, Typography } from "@mui/material";
 const ContactForm = React.lazy(() => import("../components/contact/index"));
 
 export default function Home() {
-  const { activeTab, setActiveTab, handleDownloadResume } = usePortfolio();
+  const { activeTab, setActiveTab } = usePortfolio();
 
   return (
-    <div className="portfolio">
+    <Box className="portfolio">
       <style>{portfolioStyle}</style>
-      <div className="bg-particles">
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
+      <Box className="bg-particles">
+        {PARTICLES.map((_, i) => (
+          <Box key={i} className="particle" />
+        ))}
 
-        {/* Planets */}
-        <div className="planet earth"></div>
-        <div className="planet neptune"></div>
-        <div className="planet mercury"></div>
-        <div className="planet mars"></div>
-        <div className="planet jupiter"></div>
-        <div className="planet saturn"></div>
-        <div className="planet venus"></div>
-        <div className="planet uranus"></div>
-      </div>
+        {PLANETS.map((planet) => (
+          <Box key={planet} className={`planet ${planet}`} />
+        ))}
+      </Box>
 
-      <div className="nav-container">
-        <div className="top-tabs">
+      <Box className="nav-container">
+        <Box className="top-tabs">
           {TABS.map((tab) => {
             const Icon = ICON_MAP[tab.icon as keyof typeof ICON_MAP];
             return (
@@ -59,33 +51,39 @@ export default function Home() {
                 className={`top-tab ${activeTab === tab.id ? "active" : ""}`}
                 onClick={() => setActiveTab(tab.id)}
               >
-                <span className="tab-icon">
+                <Typography component="span" className="tab-icon">
                   <Icon />
-                </span>
-                <span>{tab.name}</span>
+                </Typography>
+                <Typography component="span">{tab.name}</Typography>
               </button>
             );
           })}
-        </div>
-      </div>
-      <div className="main-container">
-        <div className="profile-sidebar">
-          <div className="profile-card">
-            <div className="profile-image-container">
+        </Box>
+      </Box>
+      <Box className="main-container">
+        <Box className="profile-sidebar">
+          <Box className="profile-card">
+            <Box className="profile-image-container">
               <img
                 src="/sagarImage.jpg"
                 alt="Sagar - Software Engineer"
                 className="profile-avatar"
               />
-              <div className="avatar-glow"></div>
-            </div>
+              <Box className="avatar-glow"></Box>
+            </Box>
 
-            <div className="profile-info">
-              <h1 className="profile-name">Sagar</h1>
-              <h2 className="profile-title">Software Engineer</h2>
-              <h3 className="profile-specialty">Frontend Developer</h3>
+            <Box className="profile-info">
+              <Typography variant="h1" className="profile-name">
+                Sagar
+              </Typography>
+              <Typography variant="h2" className="profile-title">
+                Software Engineer
+              </Typography>
+              <Typography variant="h3" className="profile-specialty">
+                Frontend Developer
+              </Typography>
 
-              <div className="social-links">
+              <Box className="social-links">
                 <a
                   href="https://github.com/sagarkashyap5587"
                   target="_blank"
@@ -105,42 +103,44 @@ export default function Home() {
                 <a href="#" className="social-link email">
                   <EmailIcon />
                 </a>
-              </div>
+              </Box>
 
               <button className="download-btn" onClick={handleDownload}>
-                <span>📄</span> Download Resume
+                <Typography component="span">📄</Typography> Download Resume
               </button>
-            </div>
-          </div>
-        </div>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Right Side - Content */}
-        <div className="content-area">
-          <div className="tab-content">
+        <Box className="content-area">
+          <Box className="tab-content">
             {/* About */}
             {activeTab === 0 && (
-              <div>
-                <h2 className="section-title">About Me</h2>
-                <div className="card">
-                  <p
-                    style={{
+              <Box>
+                <Typography variant="h2" className="section-title">
+                  About Me
+                </Typography>
+                <Box className="card">
+                  <Typography
+                    sx={{
                       fontSize: "1.2rem",
                       lineHeight: "1.8",
                       marginBottom: "25px",
                     }}
                   >
                     {UI_TEXT.ABOUT_ME_TEXT}
-                  </p>
-                  <p style={{ fontSize: "1.2rem", lineHeight: "1.8" }}>
+                  </Typography>
+                  <Typography sx={{ fontSize: "1.2rem", lineHeight: "1.8" }}>
                     {UI_TEXT.ABOUT_ME_SUB_TEXT}
-                  </p>
-                </div>
+                  </Typography>
+                </Box>
 
-                <div className="info-grid">
-                  {/* Education */}
-                  <div className="card">
-                    <h3
-                      style={{
+                <Box className="info-grid">
+                  <Box className="card">
+                    <Typography
+                      variant="h3"
+                      sx={{
                         color: "#f093fb",
                         marginBottom: "20px",
                         display: "flex",
@@ -151,26 +151,26 @@ export default function Home() {
                       }}
                     >
                       <SchoolIcon /> Education
-                    </h3>
+                    </Typography>
 
-                    <p
-                      style={{
+                    <Typography
+                      sx={{
                         fontWeight: "700",
                         fontSize: "1.2rem",
                         marginBottom: "8px",
                       }}
                     >
                       {UI_TEXT.MASTER_DEGREE_TEXT}
-                    </p>
-                    <p style={{ color: "rgba(255,255,255,0.8)" }}>
+                    </Typography>
+                    <Typography sx={{ color: "rgba(255,255,255,0.8)" }}>
                       {UI_TEXT.UNIVERSITY_DETAILS}
-                    </p>
-                  </div>
+                    </Typography>
+                  </Box>
 
-                  {/* Quick Facts */}
-                  <div className="card">
-                    <h3
-                      style={{
+                  <Box className="card">
+                    <Typography
+                      variant="h3"
+                      sx={{
                         color: "#f093fb",
                         marginBottom: "20px",
                         display: "flex",
@@ -181,10 +181,10 @@ export default function Home() {
                       }}
                     >
                       <InfoIcon /> Quick Facts
-                    </h3>
+                    </Typography>
 
-                    <p
-                      style={{
+                    <Typography
+                      sx={{
                         marginBottom: "12px",
                         display: "flex",
                         alignItems: "center",
@@ -193,10 +193,10 @@ export default function Home() {
                       }}
                     >
                       <LocationOnIcon /> Location: Noida
-                    </p>
+                    </Typography>
 
-                    <p
-                      style={{
+                    <Typography
+                      sx={{
                         marginBottom: "12px",
                         display: "flex",
                         alignItems: "center",
@@ -205,10 +205,10 @@ export default function Home() {
                       }}
                     >
                       <WorkIcon /> Available: Open for better opportunities
-                    </p>
+                    </Typography>
 
-                    <p
-                      style={{
+                    <Typography
+                      sx={{
                         display: "flex",
                         alignItems: "center",
                         gap: "8px",
@@ -216,117 +216,148 @@ export default function Home() {
                       }}
                     >
                       <TrackChangesIcon /> Focus: Web Development
-                    </p>
-                  </div>
-                </div>
-              </div>
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
             )}
 
             {/* Skills */}
             {activeTab === 1 && (
-              <div>
-                <h2 className="section-title">Skills & Expertise</h2>
-                <div className="card">
+              <Box>
+                <Typography variant="h2" className="section-title">
+                  Skills & Expertise
+                </Typography>
+                <Box className="card">
                   {SKILLS.map((skill, index) => (
-                    <div key={index} className="skill-item">
-                      <div className="skill-header">
-                        <span className="skill-name">{skill.name}</span>
-                        <span className="skill-percent">{skill.level}%</span>
-                      </div>
-                      <div className="progress-bar">
-                        <div
+                    <Box key={index} className="skill-item">
+                      <Box className="skill-header">
+                        <Typography component="span" className="skill-name">
+                          {skill.name}
+                        </Typography>
+                        <Typography component="span" className="skill-percent">
+                          {skill.level}%
+                        </Typography>
+                      </Box>
+                      <Box className="progress-bar">
+                        <Box
                           className="progress-fill"
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
-                      </div>
-                    </div>
+                          sx={{ width: `${skill.level}%` }}
+                        ></Box>
+                      </Box>
+                    </Box>
                   ))}
-                </div>
+                </Box>
 
-                <div className="card" style={{ marginTop: "50px" }}>
-                  <h3
-                    style={{
+                <Box className="card" sx={{ marginTop: "50px" }}>
+                  <Typography
+                    variant="h3"
+                    sx={{
                       fontSize: "2.2rem",
                       marginBottom: "30px",
                       fontWeight: "800",
                     }}
                   >
                     Technologies I Use
-                  </h3>
-                  <div className="tech-tags">
+                  </Typography>
+                  <Box className="tech-tags">
                     {TECHNOLOGIES.map((tech, index) => (
-                      <span key={index} className="tech-tag">
+                      <Typography
+                        component="span"
+                        key={index}
+                        className="tech-tag"
+                      >
                         {tech}
-                      </span>
+                      </Typography>
                     ))}
-                  </div>
-                </div>
-              </div>
+                  </Box>
+                </Box>
+              </Box>
             )}
 
             {activeTab === 2 && (
-              <div>
-                <h2 className="section-title">Featured Projects</h2>
-                <div className="grid">
+              <Box>
+                <Typography variant="h2" className="section-title">
+                  Featured Projects
+                </Typography>
+                <Box className="grid">
                   {PROJECTS.map((project, index) => (
-                    <div key={index} className="project-card">
+                    <Box key={index} className="project-card">
                       <img
                         src={project.image}
                         alt={project.title}
                         className="project-img"
                       />
-                      <div className="project-content">
-                        <h3 className="project-title">{project.title}</h3>
-                        <p className="project-desc">{project.description}</p>
-                        <div className="tags">
+                      <Box className="project-content">
+                        <Typography variant="h3" className="project-title">
+                          {project.title}
+                        </Typography>
+                        <Typography className="project-desc">
+                          {project.description}
+                        </Typography>
+                        <Box className="tags">
                           {project.tags.map((tag, i) => (
-                            <span key={i} className="tag">
+                            <Typography
+                              component="span"
+                              key={i}
+                              className="tag"
+                            >
                               {tag}
-                            </span>
+                            </Typography>
                           ))}
-                        </div>
-                        <div className="project-links">
+                        </Box>
+                        <Box className="project-links">
                           <a href={project.github} className="btn btn-outline">
                             Code
                           </a>
                           <a href={project.demo} className="btn btn-primary">
                             Live Demo
                           </a>
-                        </div>
-                      </div>
-                    </div>
+                        </Box>
+                      </Box>
+                    </Box>
                   ))}
-                </div>
-              </div>
+                </Box>
+              </Box>
             )}
 
             {activeTab === 3 && (
-              <div>
-                <h2 className="section-title">Work Experience</h2>
-                <div className="card">
+              <Box>
+                <Typography variant="h2" className="section-title">
+                  Work Experience
+                </Typography>
+                <Box className="card">
                   {EXPERIENCE.map((exp, index) => (
-                    <div key={index} className="timeline-item">
-                      <div className="timeline-role">{exp.role}</div>
-                      <div className="timeline-company">{exp.company}</div>
-                      <div className="timeline-period">{exp.period}</div>
-                      <div className="timeline-desc">{exp.description}</div>
-                    </div>
+                    <Box key={index} className="timeline-item">
+                      <Typography className="timeline-role">
+                        {exp.role}
+                      </Typography>
+                      <Typography className="timeline-company">
+                        {exp.company}
+                      </Typography>
+                      <Typography className="timeline-period">
+                        {exp.period}
+                      </Typography>
+                      <Typography className="timeline-desc">
+                        {exp.description}
+                      </Typography>
+                    </Box>
                   ))}
-                </div>
-              </div>
+                </Box>
+              </Box>
             )}
 
-            {/* Contact */}
             {activeTab === 4 && <ContactForm />}
-          </div>
-        </div>
-      </div>
+          </Box>
+        </Box>
+      </Box>
 
-      {/* Footer */}
-      <div className="footer">
-        <h3>Let Build Something Amazing Together</h3>
-        <p>© 2024 Sagar. All rights reserved.</p>
-      </div>
-    </div>
+      <Box className="footer">
+        <Typography variant="h3">
+          Let Build Something Amazing Together
+        </Typography>
+        <Typography>© 2024 Sagar. All rights reserved.</Typography>
+      </Box>
+    </Box>
   );
 }

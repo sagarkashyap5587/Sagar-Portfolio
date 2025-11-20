@@ -123,3 +123,16 @@ export const EXPERIENCE = [
       "Worked with pretrained AI/ML models such as Hugging Face and assisted in training small machine learning models. Helped with data preparation, testing, and basic model improvements.",
   },
 ];
+
+export const PLANETS = [
+  "earth",
+  "neptune",
+  "mercury",
+  "mars",
+  "jupiter",
+  "saturn",
+  "venus",
+  "uranus",
+];
+
+export const PARTICLES = Array(8).fill(null);
