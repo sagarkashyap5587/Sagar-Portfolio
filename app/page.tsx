@@ -20,17 +20,10 @@ import InfoIcon from "@mui/icons-material/Info";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
+const ContactForm = React.lazy(() => import("../components/contact/index"));
 
 export default function Home() {
-  const {
-    activeTab,
-    setActiveTab,
-    formData,
-    showAlert,
-    handleDownloadResume,
-    handleInputChange,
-    handleSubmit,
-  } = usePortfolio();
+  const { activeTab, setActiveTab, handleDownloadResume } = usePortfolio();
 
   return (
     <div className="portfolio">
@@ -45,7 +38,7 @@ export default function Home() {
       <div className="nav-container">
         <div className="top-tabs">
           {TABS.map((tab) => {
-            const Icon = ICON_MAP[tab.icon];
+            const Icon = ICON_MAP[tab.icon as keyof typeof ICON_MAP];
             return (
               <button
                 key={tab.id}
@@ -95,10 +88,7 @@ export default function Home() {
                 >
                   <LinkedInIcon />
                 </a>
-                <a
-                  href="mailto:sagarkashyap5587@gmail.com"
-                  className="social-link email"
-                >
+                <a href="#" className="social-link email">
                   <EmailIcon />
                 </a>
               </div>
@@ -200,7 +190,7 @@ export default function Home() {
                         fontSize: "1.1rem",
                       }}
                     >
-                      <WorkIcon /> Available: Freelance
+                      <WorkIcon /> Available: Open for better opportunities
                     </p>
 
                     <p
@@ -315,60 +305,7 @@ export default function Home() {
             )}
 
             {/* Contact */}
-            {activeTab === 4 && (
-              <div>
-                <h2 className="section-title" style={{ textAlign: "center" }}>
-                  Get In Touch
-                </h2>
-                <div className="card contact-form">
-                  <div onSubmit={handleSubmit}>
-                    <div className="form-group">
-                      <label className="form-label">Your Name</label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        className="form-input"
-                        required
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label">Your Email</label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="form-input"
-                        required
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label">Your Message</label>
-                      <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        className="form-input"
-                        required
-                      ></textarea>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={handleSubmit}
-                      className="submit-btn"
-                    >
-                      <span>Send Message</span>
-                      <span>➤</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
+            {activeTab === 4 && <ContactForm />}
           </div>
         </div>
       </div>
@@ -378,14 +315,6 @@ export default function Home() {
         <h3>Let's Build Something Amazing Together</h3>
         <p>© 2024 Sagar. All rights reserved.</p>
       </div>
-
-      {/* Alert */}
-      {showAlert && (
-        <div className="alert alert-success">
-          <span>✓</span>
-          <span>Success! Action completed.</span>
-        </div>
-      )}
     </div>
   );
 }
