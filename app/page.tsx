@@ -312,7 +312,7 @@ export default function Home() {
 
       {/* Footer */}
       <div className="footer">
-        <h3>Let's Build Something Amazing Together</h3>
+        <h3>Let Build Something Amazing Together</h3>
         <p>© 2024 Sagar. All rights reserved.</p>
       </div>
     </div>
