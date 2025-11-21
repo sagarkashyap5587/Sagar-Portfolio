@@ -1039,6 +1039,23 @@ export const portfolioStyle = `
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   }
 
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  .btn:disabled:hover {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 10px 25px rgba(102,126,234,0.4);
+  }
+
   .skill-item {
     margin-bottom: 35px;
   }

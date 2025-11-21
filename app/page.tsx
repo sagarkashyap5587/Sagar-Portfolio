@@ -26,15 +26,20 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 import { Box, Typography } from "@mui/material";
 const ContactForm = React.lazy(() => import("../components/contact/index"));
+import { Loader } from "../components/Loader/index";
 
 // <================== Home Components ==================>
 export default function Home() {
-  const { activeTab, setActiveTab } = usePortfolio();
+  const { activeTab, setActiveTab, isLoading, loadingMessage, handleProjectOpen, loaderType } = usePortfolio();
 
   // <================== Return JSX ==================>
   return (
     <Box className="portfolio">
       <style>{portfolioStyle}</style>
+
+      {/* Loader Component */}
+      <Loader isOpen={isLoading} message={loadingMessage} type={loaderType} />
+
       <Box className="bg-particles">
         {PARTICLES.map((_, i) => (
           <Box key={i} className="particle" />
@@ -53,7 +58,7 @@ export default function Home() {
               <button
                 key={tab.id}
                 className={`top-tab ${activeTab === tab.id ? "active" : ""}`}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => setActiveTab(tab.id, tab.name)}
               >
                 <Typography component="span" className="tab-icon">
                   <Icon />
@@ -309,12 +314,20 @@ export default function Home() {
                           ))}
                         </Box>
                         <Box className="project-links">
-                          <a href={project.github} className="btn btn-outline">
+                          <button
+                            className="btn btn-outline"
+                            onClick={() => handleProjectOpen(project.github, project.title)}
+                            disabled={project.github === "#"}
+                          >
                             {UI_TEXT.PROJECT_CODE}
-                          </a>
-                          <a href={project.demo} className="btn btn-primary">
+                          </button>
+                          <button
+                            className="btn btn-primary"
+                            onClick={() => handleProjectOpen(project.demo, project.title)}
+                            disabled={project.demo === "#"}
+                          >
                             {UI_TEXT.PROJECT_LIVE_DEMO}
-                          </a>
+                          </button>
                         </Box>
                       </Box>
                     </Box>
