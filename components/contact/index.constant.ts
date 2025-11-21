@@ -5,6 +5,26 @@ import * as Yup from "yup";
 export const CONTACT_FORM_TEXT = {
   TITLE: "Get In Touch",
   SUBTITLE: "Let's Build Something Amazing Together",
+  CONTACT_INFO: {
+    TITLE: "Let's Connect",
+    DESCRIPTION:
+      "I'm always excited to work on new projects and collaborate with creative minds. Whether you have a project in mind or just want to chat, feel free to reach out!",
+    EMAIL_LABEL: "Email",
+    EMAIL_VALUE: "N/A",
+    PHONE_LABEL: "Phone",
+    PHONE_VALUE: "N/A",
+    LOCATION_LABEL: "Location",
+    LOCATION_VALUE: "Noida",
+  },
+  SOCIAL_LINKS: {
+    TITLE: "Find Me Online",
+  },
+  FORM: {
+    TITLE: "Send Me a Message",
+    SUBTITLE:
+      "I'd love to hear from you. Drop me a message and I'll respond as soon as possible!",
+    SUBMIT_STATUS: "Please wait while we send your message...",
+  },
   FIELDS: {
     NAME: {
       LABEL: "Your Name",
@@ -42,6 +62,10 @@ export const CONTACT_FORM_TEXT = {
   SUCCESS_MESSAGE:
     "Thank you for your message! I'll get back to you within 24 hours.",
   ERROR_MESSAGE: "Oops! Something went wrong. Please try again later.",
+  ALERT_TITLES: {
+    SUCCESS: "Success!",
+    ERROR: "Error!",
+  },
 };
 
 // <================== VALIDATION SCHEMA ==================>
