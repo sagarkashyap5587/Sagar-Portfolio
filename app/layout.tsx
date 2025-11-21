@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sagar - Software Engineer Portfolio",
-  description: "Portfolio of Sagar, a Software Engineer specializing in React.js, frontend development, and modern web technologies.",
+  title: "Sagar (Software Engineer)",
+  description:
+    "Portfolio of Sagar, a Software Engineer specializing in React.js, frontend development, and modern web technologies.",
 };
 
 export default function RootLayout({
