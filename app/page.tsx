@@ -308,14 +308,14 @@ export default function Home() {
                             </Typography>
                           ))}
                         </Box>
-                        <Box className="project-links">
+                        {/* <Box className="project-links">
                           <a href={project.github} className="btn btn-outline">
                             {UI_TEXT.PROJECT_CODE}
                           </a>
                           <a href={project.demo} className="btn btn-primary">
                             {UI_TEXT.PROJECT_LIVE_DEMO}
                           </a>
-                        </Box>
+                        </Box> */}
                       </Box>
                     </Box>
                   ))}
