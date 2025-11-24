@@ -182,6 +182,9 @@ export const ContactForm: React.FC = () => {
                     ),
                     className: "textfield-input",
                   }}
+                  inputProps={{
+                    maxLength: 50,
+                  }}
                 />
                 <Box className="field-progress">
                   <Box
@@ -227,6 +230,9 @@ export const ContactForm: React.FC = () => {
                       </InputAdornment>
                     ),
                     className: "textfield-input",
+                  }}
+                  inputProps={{
+                    maxLength: 50,
                   }}
                 />
                 <Box className="field-progress">
@@ -282,6 +288,9 @@ export const ContactForm: React.FC = () => {
                     ),
                     className: "textfield-input",
                   }}
+                  inputProps={{
+                    maxLength: 100,
+                  }}
                 />
                 <Box className="field-progress">
                   <Box
@@ -333,6 +342,9 @@ export const ContactForm: React.FC = () => {
                   }`}
                   InputProps={{
                     className: "textarea-input",
+                  }}
+                  inputProps={{
+                    maxLength: 1000,
                   }}
                 />
                 <Box className="field-progress">
