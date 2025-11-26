@@ -63,8 +63,7 @@ export const PROJECTS = [
     title: "Henry (Real Estate Project)",
     description:
       "A real estate platform where users can buy, sell, and share ownership of land and homes. Built using a micro-frontend architecture with Single-SPA, enabling independent modules that integrate seamlessly. Developed using React.js.",
-    image:
-      "https://images.unsplash.com/photo-1494526585095-c41746248156?w=400&h=300&fit=crop",
+    image: "/Henry-Project.jpg",
     tags: ["React.js", "Micro-Frontend", "Single-SPA", "REST API"],
     github: "#",
     demo: "#",
@@ -73,8 +72,7 @@ export const PROJECTS = [
     title: "YK (Car Services Platform)",
     description:
       "A comprehensive car service management platform offering service booking, payment processing, service history tracking, and more. Built with React.js and TypeScript.",
-    image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=300&fit=crop",
+    image: "/YK-Car.png",
     tags: ["React.js", "TypeScript", "REST API", "Redux Toolkit", "Thunk"],
     github: "#",
     demo: "#",
@@ -84,7 +82,7 @@ export const PROJECTS = [
     description:
       "A healthcare staffing and management platform that streamlines onboarding, scheduling, compliance, and communication between Admins, Facility Owners, and Nurses.",
     image:
-      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=300&fit=crop",
+      "/Agalia-Healthcare.jpg",
     tags: ["React.js", "APIs", "Redux", "Admin Panel"],
     github: "#",
     demo: "#",
@@ -94,7 +92,7 @@ export const PROJECTS = [
     description:
       "A platform connecting instructors and clients for live 1:1 coding sessions, mentorship, paid lectures, and learning content such as blogs, videos, and real project tasks. Integrated with Razorpay for secure payments.",
     image:
-      "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=400&h=300&fit=crop",
+      "/CodXpo-Learning.png",
     tags: [
       "Next.js",
       "TypeScript",
