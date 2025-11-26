@@ -104,7 +104,11 @@ export default function Home() {
                 >
                   <LinkedInIcon />
                 </a>
-                <a href="#" className="social-link email">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=sagarkashyap972013@gmail.com"
+                  target="_blank"
+                  className="social-link email"
+                >
                   <EmailIcon />
                 </a>
               </Box>
