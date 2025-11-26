@@ -34,7 +34,7 @@ export const UI_TEXT = {
   CONTACT_DESCRIPTION: `I am always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!`,
   CONTACT_NOT_AVAILABLE: "N/A",
   CONTACT_CONNECT_TITLE: "Connect With Me",
-  META_TITLE: "Sagar - Software Engineer Portfolio",
+  META_TITLE: "Sagar (Software Engineer)",
   META_DESCRIPTION:
     "Portfolio of Sagar, a Software Engineer specializing in React.js, frontend development, and modern web technologies.",
 };

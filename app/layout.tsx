@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { UI_TEXT } from "./page.constant";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sagar (Software Engineer)",
-  description:
-    "Portfolio of Sagar, a Software Engineer specializing in React.js, frontend development, and modern web technologies.",
+  title: UI_TEXT.META_TITLE,
+  description: UI_TEXT.META_DESCRIPTION,
 };
 
 export default function RootLayout({
