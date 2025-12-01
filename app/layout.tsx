@@ -57,74 +57,17 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              // Enhanced PWA Service Worker Registration
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
-                  const swUrl = '/sw.js';
-
-                  navigator.serviceWorker.register(swUrl, { scope: '/' })
+                  navigator.serviceWorker.register('/sw.js', { scope: '/' })
                     .then(function(registration) {
-                      console.log('[PWA] SW registered: ', registration);
-
-                      // Check for updates periodically
-                      setInterval(() => {
-                        registration.update();
-                      }, 60 * 60 * 1000); // Check every hour
-
-                      // Handle updates
-                      registration.addEventListener('updatefound', () => {
-                        const newWorker = registration.installing;
-                        if (newWorker) {
-                          newWorker.addEventListener('statechange', () => {
-                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                              // New content available, show update prompt
-                              if (confirm('New version available! Reload to update?')) {
-                                newWorker.postMessage({ type: 'SKIP_WAITING' });
-                                window.location.reload();
-                              }
-                            }
-                          });
-                        }
-                      });
+                      console.log('SW registered: ', registration);
                     })
                     .catch(function(registrationError) {
-                      console.error('[PWA] SW registration failed: ', registrationError);
+                      console.log('SW registration failed: ', registrationError);
                     });
                 });
-              } else {
-                console.warn('[PWA] Service Workers are not supported in this browser');
               }
-
-              // PWA Install Prompt
-              let deferredPrompt;
-              window.addEventListener('beforeinstallprompt', (e) => {
-                e.preventDefault();
-                deferredPrompt = e;
-
-                // Show install button or prompt
-                const installButton = document.querySelector('[data-pwa-install]');
-                if (installButton) {
-                  installButton.style.display = 'block';
-                  installButton.addEventListener('click', () => {
-                    if (deferredPrompt) {
-                      deferredPrompt.prompt();
-                      deferredPrompt.userChoice.then((choiceResult) => {
-                        console.log('[PWA] Install prompt result:', choiceResult.outcome);
-                        deferredPrompt = null;
-                      });
-                    }
-                  });
-                }
-              });
-
-              // Handle app installed event
-              window.addEventListener('appinstalled', () => {
-                console.log('[PWA] App was installed successfully');
-                const installButton = document.querySelector('[data-pwa-install]');
-                if (installButton) {
-                  installButton.style.display = 'none';
-                }
-              });
             `,
           }}
         />
